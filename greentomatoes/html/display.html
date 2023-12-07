@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Tomatoes</title>
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+
+    <script src="../js/jsconfig.js"></script>
+
+    <script>getPoems()</script>
+
+    <link rel="stylesheet" href="../css/display.css">
+</head>
+<body>
+
+    <header>
+        <h1>Your Work</h1>
+    </header>
+
+    <nav>
+        <ul id="menuItems">
+            <li><a href="../html/freewrite.html">Create</a></li>
+            <li><a href="../html/randomword.html">Play</a></li>
+            <li><a href="../html/display.html">Your Work</a></li>
+            <li><a><button onclick="signOut()">Sign Out</button></a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div id="displayData"></div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+   
+    
+</body>
+</html>

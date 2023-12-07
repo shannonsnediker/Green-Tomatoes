@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poem Game</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+
+    <script src="../js/jsconfig.js">
+    </script>
+
+</head>
+<body>
+
+<header>
+    <h1>Food for Thought</h1>
+</header>
+
+<nav>
+    <ul id="menuItems">
+        <li><a href="../html/freewrite.html">Create</a></li>
+        <li><a href="../html/randomword.html">Play</a></li>
+        <li><a href="../html/display.html">Your Work</a></li>
+        <li><a><button onclick="signOut()">Sign Out</button></a></li>
+    </ul>
+</nav>
+
+<main>
+
+<div id="preloader">
+    <h1>Loading Game</h1>
+</div>
+
+<button onclick="outputDisplayWord()" class="begin">begin</button>
+
+<div id="displayWordsOnScreen">
+</div> 
+<!-- div for the words to be displayed in -->
+
+<p>Select a word from above to start writing</p>
+
+<form id="form">
+    <input type="text" placeholder="title" id="title">
+    <br>
+    <input type="text" placeholder="author name" id="authorName">
+    <br>
+
+    <div id="poem"></div>
+    <!-- container for the selected poem words to appear in -->
+
+    <button id="save" onclick="addPoem(user)" class="begin">Save Poem: there is a bug, you must manually call addPoem() in console to save</button>
+    <br>
+    <button id="deleteButton" class="begin">Delete Last Word</button>
+</form>
+
+</main>
+
+<script type="text/javascript" src="../js/randomword.js"></script>
+
+</body>
+</html>

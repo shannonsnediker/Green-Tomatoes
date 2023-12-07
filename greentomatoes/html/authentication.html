@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/authentication.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+
+    <script src="../js/jsconfig.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>GREEN TOMATOES</h1>
+        <h2>
+            HOUSE OF POETRY
+        </h2>
+    </header>
+
+    <main id="main-wrapper">
+
+    <div id="create-wrapper">
+
+        <h2 id="header">CREATE AN ACCOUNT</h2>
+      
+
+        <form id="login-form">
+          <input type="text" name="email" id="create-email" class="login-form-field" placeholder="Email">
+          <input type="password" name="password" id="create-password" class="login-form-field" placeholder="Password">
+          <!-- <input type="submit" value="Login" id="login-form-submit" onclick="user.signIn()"> -->
+          <button type="button" id="submitButton" onclick="createUser()">Create Account</button>
+        </form>
+
+        <form id="login-form">
+            <input type="text" name="email" id="gmail" class="login-form-field" placeholder="gmail">
+            <button type="button" id="submitButton" onclick="googleSignIn()">Use Google</button>
+        </form>
+
+    </div>
+
+
+    <div id="login-wrapper">
+      <h2 id="header">LOGIN</h2>
+      
+
+      <form id="login-form">
+        <input type="text" name="email" id="login-email" class="login-form-field" placeholder="Email">
+        <input type="password" name="password" id="login-password" class="login-form-field" placeholder="Password">
+        <!-- <input type="submit" value="Login" id="login-form-submit" onclick="user.signIn()"> -->
+        <button type="button" id="submitButton" onclick="signIn()">Sign In</button>
+      </form>
+      
+      <form id="login-form">
+        <input type="text" name="email" id="gmail" class="login-form-field" placeholder="gmail">
+        <button type="button" id="submitButton" onclick="googleSignIn()">Use Google</button>
+      </form>
+    </div>
+    
+    </main>
+  </body>
+  
+  </html>

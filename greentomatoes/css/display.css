@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Cormorant+SC&display=swap');
+
+html {
+    color: #2a6112;
+    font-family: 'Cormorant SC',Arial,sans-serif;
+    background-color: #F0EFED;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    font-size: 2.5rem; 
+}
+
+#menuItems {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 0.5rem; 
+    text-align: center; 
+    width: calc(50% - 1rem); 
+}
+
+li a {
+    text-decoration: none;
+    color: #2a6112;
+    background-color: whitesmoke;
+    padding: 1.5rem; 
+    display: block; 
+}
+
+button {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: #2a6112;
+    font-family: 'Cormorant SC',Arial,sans-serif;
+    font-size: 1rem;
+  }
+
+  #displayData {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+  }
+
+  #render {
+    display: block;
+    flex: 0 0 calc(50% - 20px); /* Two divs per row (minus gap) */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #2a6112;
+  }
+
+  .deleteButton {
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 2px #2a6112;
+    padding: .2rem;
+    margin: 0 auto; 
+    margin-top: .5rem;
+  }
+
+  .updateButton {
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 2px #2a6112;
+    padding: .2rem;
+    margin: 0 auto; 
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+  }
+
+  input, textarea {
+    color: #2a6112;
+    font-family: 'Cormorant SC',Arial,sans-serif;
+    text-align: center;
+  }
+
+  input {
+    height: 30px;
+    font-size: 1.5rem;
+  }
+
+  textarea {
+    resize: none;
+    height: 400px;
+  }
+
+  @media only screen and (min-width: 992px) {
+      #menuItems {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+      }
+}

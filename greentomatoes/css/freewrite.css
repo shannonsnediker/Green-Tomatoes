@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Cormorant+SC&display=swap');
+
+html {
+    color: #2a6112;
+    font-family: 'Cormorant SC',Arial,sans-serif;
+    background-color: #F0EFED;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    font-size: 2.5rem; 
+}
+
+#menuItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 0.5rem; 
+    text-align: center; 
+    width: calc(50% - 1rem); 
+}
+
+li a {
+    text-decoration: none;
+    color: #2a6112;
+    background-color: whitesmoke;
+    padding: 1.5rem; 
+    display: block; 
+}
+
+.button {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: #2a6112;
+    font-family: 'Cormorant SC',Arial,sans-serif;
+    font-size: 1rem;
+  }
+
+  #synsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #displaySyns {
+    padding-right: 1.5rem;
+  }
+  
+  #poem li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+#form {
+    width: 70%;
+    height: 70%;
+    display: grid;
+    justify-items: center;
+    align-items: center; 
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  #completedPoem {
+    width: 90%;
+    height: 300px;
+    resize: none;
+    background-color: 
+    #f0efed8d;
+    font-family: 'Cormorant SC',Arial,sans-serif;
+    color: #2a6112;
+}
+
+@media only screen and (min-width: 992px) {
+    #completedPoem {
+        width: 65%;
+        height: 800px; 
+      }
+
+      #menuItems {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+      }
+}
