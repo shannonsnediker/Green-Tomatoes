@@ -1,11 +1,11 @@
 let words = {
     grabWord: function() {
-        let apiEndPoint = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
-        let fetchOptions = {
+        let apiEndPoint = 'https://wordsapiv1.p.rapidapi.com/words/?random=true'; // interesting API. its very clever to think of an API as dictionary, I guess we see implementations of this in different ways already, but now that so much language can be generated i think something like this has even more value.
+        let fetchOptions = { 
 	        method: 'GET',
 	        headers: {
 		        'X-RapidAPI-Key': 'cecffc0bb9mshfb79b292fb435adp1edc50jsn252712d6d654',
-		        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+		        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com' // rapidAPI is a marketplace for API's you should look into it abit, its very useful for integrated multiple servcies etc
 	        }
         };
 
