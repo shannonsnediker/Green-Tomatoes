@@ -58,6 +58,41 @@ for (let i = 0; i < 30; i++) { //created a for loop to loop thorugh api 30 times
 }
 
 // TEMPORARY SOLUTION TO ASYNC ISSUE UNTIL WE LEARN ASYNC AWAIT!!!!!
+// you already know that, its just using promises :) how could you use a pending promise here to run the loop? 
+// remember you can use promises to run functions in a pending state as well
+
+// let isPromiseResolved = false;
+
+// // Function that returns a promise
+// function asyncOperation() {
+//     return new Promise((resolve, reject) => {
+//         // Simulate an asynchronous operation
+//         setTimeout(() => {
+//             resolve("Promise resolved");
+//             isPromiseResolved = true; // Update the flag when the promise is resolved
+//         }, 5000); // 5 seconds delay
+//     });
+// }
+
+// // Function to call continuously until the promise resolves
+// function continuousFunction() {
+//     if (!isPromiseResolved) {
+//         console.log("Promise is still pending...");
+
+//         // Call this function again after a short delay
+//         setTimeout(continuousFunction, 1000); // Check again after 1 second
+//     } else {
+//         console.log("Promise has been resolved!");
+//     }
+// }
+
+// // Start the async operation
+// asyncOperation();
+
+// // Start the continuous function
+// continuousFunction();
+
+
 
 setTimeout(() => {
     runForLoops();
