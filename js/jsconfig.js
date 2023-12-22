@@ -1,7 +1,7 @@
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCdH05JyaMvRgxW_76mArIQXrPBBQbLpBQ",
+  apiKey: "AIzaSyCdH05JyaMvRgxW_76mArIQXrPBBQbLpBQ", // you will learn more about hiding these types of configurations when using node.js
   authDomain: "web104-final-project-ssnediker.firebaseapp.com",
   projectId: "web104-final-project-ssnediker",
   storageBucket: "web104-final-project-ssnediker.appspot.com",
@@ -19,7 +19,7 @@ var provider;
 
 function createUser(){
 
-    let email = document.getElementById('create-email').value;
+    let email = document.getElementById('create-email').value; // think about input validation, how could you protect your javascript function from hackers(making sure that you only allow email addresses to be sent into the parameter) 
     let password = document.getElementById('create-password').value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -38,12 +38,13 @@ function createUser(){
 
 function signIn(){
     let email = document.getElementById('login-email').value
-    let password = document.getElementById('login-password').value
+    let password = document.getElementById('login-password').value // during sign in and create user, you should clear the fields after submission
 
 
     firebase.auth().signInWithEmailAndPassword(email, password)
   .then((userCredential) => {
    document.getElementById('form').style.display = 'none'
+  // So right now were learning about managing user state, the way we control that state is with the browser. In Node.js there are better and more efficent ways to track user state using a server and not the DOM and this is going to improve your coding skills by 100% :)
 
    console.log(userCredential)
     user = userCredential.user.uid
@@ -52,6 +53,7 @@ function signIn(){
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
+    // think about notifiyng the user that the sign in wasn't successful
   });
 
     document.getElementById('login-email').value = ""
@@ -82,6 +84,7 @@ firebase.auth().signInWithPopup(provider)
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
+    // same here notifiy the user in the dom of an error is a good strategy
   });
 
     document.getElementById('gmail').value = ""
@@ -115,7 +118,7 @@ function addPoem(user){
             });
     };
 
-   
+   //
 
     function getPoems() {
       db.collection("poem app").get().then((querySnapshot) => {
@@ -198,3 +201,4 @@ function signOut() {
         // An error happened.
       });
 }
+// I apprecaite the comments in your code, can never have to few of them
