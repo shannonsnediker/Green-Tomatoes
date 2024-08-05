@@ -1,35 +1,35 @@
-let words = {
-    grabWord: function() {
-        let apiEndPoint = 'https://wordsapiv1.p.rapidapi.com/words/?random=true'; // interesting API. its very clever to think of an API as dictionary, I guess we see implementations of this in different ways already, but now that so much language can be generated i think something like this has even more value.
-        let fetchOptions = { 
-	        method: 'GET',
-	        headers: {
-		        'X-RapidAPI-Key': 'cecffc0bb9mshfb79b292fb435adp1edc50jsn252712d6d654',
-		        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com' // rapidAPI is a marketplace for API's you should look into it abit, its very useful for integrated multiple servcies etc
-	        }
-        };
+async function grabWord() { 
+    let apiEndPoint = 'https://wordsapiv1.p.rapidapi.com/words/?random=true'; // API endpoint variable
+    let fetchOptions = { // Setting variable equal to the get method that pulls specified data from API
+        method: 'GET',
+        headers: { // Headers for authentication and host
+            'X-RapidAPI-Key': 'cecffc0bb9mshfb79b292fb435adp1edc50jsn252712d6d654', 
+            'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+        }
+    };
 
-        fetch(apiEndPoint, fetchOptions)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                console.log(data)
-                let grabbedWord = data.word;
-                words.primary.push(grabbedWord); 
-                console.log(words.primary)
-            })
-            .catch(error => {
-                console.error(error);
-            });
-        },
+    try {
+        const response = await fetch(apiEndPoint, fetchOptions); // Await the fetch request
+        const data = await response.json(); // Await the parsing of the JSON response
+        console.log(data);
 
-    primary: [],
+        let grabbedWord = data.word;
+        primary.push(grabbedWord); // Add the fetched word to the primary array
+        console.log(primary);
+    } catch (error) {
+        console.error(error); // Handle any errors that occur during the fetch request or JSON parsing
+    }
+}
 
-    secondary: ['accept', 'above', 'acknowledge', 'across', 'act', 'action', 'admit', 'affect', 'along', 'announce', 'another', 'anymore', 'together', 'apart', 'a part of', 'approval', 'approximately', 'arise', 'arrant', 'arrive', 'ask', 'attack', 'attract', 'avoid'],
+let primary = [];
 
-    tertiary: ['anyone', 'anything', 'I', 'me', 'we', 'you', 'us', 'a', 'the', 'it', 'it is', 'not', 'they', 'them']
-}; //an object set to an array of three categories of words to be used in the poem game
+let secondary = ['accept', 'above', 'acknowledge', 'across', 'act', 'action', 'admit', 'affect', 'along', 'announce', 'another', 'anymore', 'together', 'apart', 'a part of', 'approval', 'approximately', 'arise', 'arrant', 'arrive', 'ask', 'attack', 'attract', 'avoid'];
+
+let tertiary = ['anyone', 'anything', 'I', 'me', 'we', 'you', 'us', 'a', 'the', 'it', 'it is', 'not', 'they', 'them'];
+
+// Example usage: Call the grabWord function to fetch a word and update the primary array
+// grabWord();
+
 
 let displayWord = [] // an empty array for randomly selected strings from words variables to be pushed to
 
@@ -50,81 +50,41 @@ function selectPoemWords(array) { //created a function with one argument that ra
 
     return z; // returns the result of this function to the global variable
 }
-let counter = 0;
-
-for (let i = 0; i < 30; i++) { //created a for loop to loop thorugh api 30 times and pushes to words.primary array
-    words.grabWord();
-    // counter++
-}
-
-// TEMPORARY SOLUTION TO ASYNC ISSUE UNTIL WE LEARN ASYNC AWAIT!!!!!
-// you already know that, its just using promises :) how could you use a pending promise here to run the loop? 
-// remember you can use promises to run functions in a pending state as well
-
-// let isPromiseResolved = false;
-
-// // Function that returns a promise
-// function asyncOperation() {
-//     return new Promise((resolve, reject) => {
-//         // Simulate an asynchronous operation
-//         setTimeout(() => {
-//             resolve("Promise resolved");
-//             isPromiseResolved = true; // Update the flag when the promise is resolved
-//         }, 5000); // 5 seconds delay
-//     });
-// }
-
-// // Function to call continuously until the promise resolves
-// function continuousFunction() {
-//     if (!isPromiseResolved) {
-//         console.log("Promise is still pending...");
-
-//         // Call this function again after a short delay
-//         setTimeout(continuousFunction, 1000); // Check again after 1 second
-//     } else {
-//         console.log("Promise has been resolved!");
-//     }
-// }
-
-// // Start the async operation
-// asyncOperation();
-
-// // Start the continuous function
-// continuousFunction();
 
 
 
-setTimeout(() => {
-    runForLoops();
-}, 10000);
-
-
-setTimeout(() => {
-     document.getElementById('preloader').style.display = 'none';
-}, 10000); 
-
-
-function runForLoops() {
+// Async await function goes here
+async function runForLoops() {
     
     for (let i = 0; i < 30; i++) { //created a for loop to iterate through the desired array and select 30 words from the object.primary property
 
-        if (words.primary.length > 0) {
-            displayWord.push(selectPoemWords(words.primary));
+        if (primary.length > 0) {
+            displayWord.push(selectPoemWords(primary));
         } // passes the words.primary as an argument of the selectPoemWords function to randomly select the 30 words and then push those words to the displayWord array
     }
     
     for (let i = 0; i < 20; i++) { //created a for loop to iterate through the desired array and select 20 words from the object.secondary property
-        if (words.secondary.length > 0) {
-            displayWord.push(selectPoemWords(words.secondary));
+        if (secondary.length > 0) {
+            displayWord.push(selectPoemWords(secondary));
         } // passes the words.secondary as an argument of the selectPoemWords function to randomly select the 20 words and then push those words to the displayWord array
     }
     
     for (let i = 0; i < 10; i++) { //created a for loop to iterate through the desired array and select 10 words from the object.tertiary property
-        if (words.tertiary.length > 0) {
-            displayWord.push(selectPoemWords(words.tertiary));
+        if (tertiary.length > 0) {
+            displayWord.push(selectPoemWords(tertiary));
         } // passes the words.tertiary as an argument of the selectPoemWords function to randomly select the 10 words and then push those words to the displayWord array
     }
+};
+
+async function callAwaitFunctions() {
+    for (let i = 0; i < 30; i++) { //created a for loop to loop thorugh api 30 times and pushes to words.primary array
+        await grabWord();
+    }
+
+    await runForLoops();
 }
+
+callAwaitFunctions();
 
 
 function outputDisplayWord() { // created a function to wrap each random word that was pushed to the displayWord array in a div, outputted to the dom, and then add an event listener so that each word is clickable.
